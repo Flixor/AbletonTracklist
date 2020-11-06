@@ -22,10 +22,14 @@ tk.title('Ignore me pls')
 tk.withdraw()
 
 ## choose .als
-tk.filename = filedialog.askopenfilename(initialdir="/Users/flixor/Projects/AbletonTracklist", title="Select A File", filetypes=(("Ableton session files", "*.als"),("all files", "*.*")))
+tk.filename = filedialog.askopenfilename(initialdir="/", title="Select an Ableton session file", filetypes=(("ALS files", "*.als"), ("All files", "*.*")))
 # tk.filename = '/Users/flixor/Projects/AbletonTracklist/test.als'
 
 ## tk.mainloop() not necessary!
+m = re.search('\.als$', tk.filename)
+if not m:
+	print("No ALS file selected!")
+	exit()
 
 ## gzip to get xml from als
 p = subprocess.run(['gunzip', '-c', tk.filename], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
