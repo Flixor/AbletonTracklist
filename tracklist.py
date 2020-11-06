@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-### Felix Postma 2020
+# Copyright Felix Postma 2020
+
 # This script retrieves the time and name of audio clips rom an ableton session file,
 # and prints this out in a tracklist format that is suitable for pasting into Mixcloud.
 
