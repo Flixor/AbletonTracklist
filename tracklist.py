@@ -42,11 +42,13 @@ tracklist = []
 
 ## create .txt file in .als folder
 txtname = re.sub('\.als$', ' tracklist.txt', tk.filename)
-os.remove(txtname)
+if os.path.exists(txtname):
+    os.remove(txtname)
 
 ## create .m3u file in .als folder
 m3uname = re.sub('\.als$', ' playlist.m3u', tk.filename)
-os.remove(m3uname)
+if os.path.exists(m3uname):
+    os.remove(m3uname)
 print('#EXTM3U', file=open(m3uname, 'a'))
 
 ## find the clips 
