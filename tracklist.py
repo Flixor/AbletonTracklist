@@ -71,7 +71,7 @@ def timekey(e):
 tracklist.sort(key=timekey)
 
 
-## create timestamp, and print!
+## create MM:SS timestamp, and print!
 for track in tracklist:
 	time = track[0]
 	mins = math.floor(time)
