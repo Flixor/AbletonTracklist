@@ -24,7 +24,6 @@ tk.withdraw()
 
 ## choose .als
 tk.filename = filedialog.askopenfilename(initialdir="/", title="Select an Ableton session file", filetypes=(("ALS files", "*.als"), ("All files", "*.*")))
-# tk.filename = '/Users/flixor/Projects/AbletonTracklist/test.als'
 
 ## tk.mainloop() not necessary!
 m = re.search('\.als$', tk.filename)
@@ -84,9 +83,8 @@ for track in tracklist:
 	timestamp = str(mins)+':'+secsstr
 	name = track[1]
 	## print to tracklist.txt
-	# print(timestamp, name)
 	print(timestamp, name, file=open(txtname, 'a'))
-	## print unedited name to m3u playlist
+	## print unedited name to playlist.m3u
 	name_unclean = track[2]
 	print('#EXTINF:0,'+name_unclean+'.mp3', file=open(m3uname, 'a'))
 	print(re.sub(' ', '%20', name_unclean)+'.mp3', file=open(m3uname, 'a'))
