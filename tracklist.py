@@ -82,8 +82,8 @@ for track in tracklist:
 		secsstr = '0'+secsstr
 	timestamp = str(mins)+':'+secsstr
 	name = track[1]
-	print(timestamp, name)
 	## print to tracklist.txt
+	# print(timestamp, name)
 	print(timestamp, name, file=open(txtname, 'a'))
 	## print unedited name to m3u playlist
 	name_unclean = track[2]
@@ -91,4 +91,5 @@ for track in tracklist:
 	print(re.sub(' ', '%20', name_unclean)+'.mp3', file=open(m3uname, 'a'))
 
 
+print("Created tracklist txt and m3u playlist for "+re.search('[a-zA-Z0-9]+\.als$', tk.filename)[0])
 
