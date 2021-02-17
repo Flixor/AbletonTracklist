@@ -85,5 +85,5 @@ for track in tracklist:
 	print(timestamp, name, file=open(txtname, 'a'))
 
 
-print("Created tracklist txt playlist for "+alsname)
+print("Created tracklist at "+txtname)
 
