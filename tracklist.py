@@ -66,6 +66,10 @@ tracklist.sort(key=timekey)
 ## isolate .als file name from full path
 alsname = re.search('[^/]+\.als$', tk.filename)[0]
 
+## get number of samples found in ableton session
+n = len(tracklist)
+print("Found "+str(n)+" tracks in "+alsname+".")
+
 ## create MM:SS timestamp, and print!
 for track in tracklist:
 	time = track[0]
