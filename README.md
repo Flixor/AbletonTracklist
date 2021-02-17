@@ -9,4 +9,5 @@ This python3 script is for exporting tracklists directly from an Ableton session
 If all goes well, your output should read something like:
 
 `Found 27 tracks in coolmix.als.`
+
 `Created tracklist at /fullpath/coolmix tracklist.txt`
