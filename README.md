@@ -7,7 +7,6 @@ This python3 script is for exporting tracklists directly from an Ableton session
 - Also some attempts are made to remove anything from the clip names that is not Artist - Title.
 
 If all goes well, your output should read something like:
-`
-Found 27 tracks in coolmix.als.
-Created tracklist at /fullpath/coolmix tracklist.txt
-`
+
+`Found 27 tracks in coolmix.als.`
+`Created tracklist at /fullpath/coolmix tracklist.txt`
