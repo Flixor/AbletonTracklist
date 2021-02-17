@@ -63,6 +63,8 @@ def timekey(e):
 ## sort according to time
 tracklist.sort(key=timekey)
 
+## isolate .als file name from full path
+alsname = re.search('[^/]+\.als$', tk.filename)[0]
 
 ## create MM:SS timestamp, and print!
 for track in tracklist:
@@ -79,5 +81,5 @@ for track in tracklist:
 	print(timestamp, name, file=open(txtname, 'a'))
 
 
-print("Created tracklist txt playlist for "+re.search('[a-zA-Z0-9]+\.als$', tk.filename)[0])
+print("Created tracklist txt playlist for "+alsname)
 
