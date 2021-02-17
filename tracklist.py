@@ -45,15 +45,16 @@ txtname = re.sub('\.als$', ' tracklist.txt', tk.filename)
 if os.path.exists(txtname):
     os.remove(txtname)
 
-## find the clips 
-for clip in root.iter('AudioClip'):
-	## get time in beats (assuming 120 bpm!!) and convert to minutes
-	time = float(clip.get('Time')) / 120.0
-	## get name
-	name = clip.find('Name').get('Value')
-	## remove album titles and such, anything thats not artist or title
-	name = re.sub('\s[-_]\s.*\s[-_]\s', ' - ', name)	
-	tracklist.append([time, name, name_unclean])
+## find all clips in arrangement view
+for sample in root.iter('Sample'):
+	for clip in sample.iter('AudioClip'):
+		## get time in beats (assuming 120 bpm!!) and convert to minutes
+		time = float(clip.get('Time')) / 120.0
+		## get name
+		name = clip.find('Name').get('Value')
+		## remove album titles and such, anything thats not artist or title
+		name = re.sub('\s[-_]\s.*\s[-_]\s', ' - ', name)	
+		tracklist.append([time, name])
 
 ## create key to sort by time
 def timekey(e):
