@@ -50,9 +50,7 @@ for clip in root.iter('AudioClip'):
 	## get time in beats (assuming 120 bpm!!) and convert to minutes
 	time = float(clip.get('Time')) / 120.0
 	## get name
-	name_unclean = clip.find('Name').get('Value')
-	## for proper tracklist: remove anything at the end of the name that matches 'my free mp3...'
-	name = re.sub('\smy[\s-]*free[\s-]*mp3[a-z.]*\s*$', '', name_unclean)
+	name = clip.find('Name').get('Value')
 	## remove album titles and such, anything thats not artist or title
 	name = re.sub('\s[-_]\s.*\s[-_]\s', ' - ', name)	
 	tracklist.append([time, name, name_unclean])
