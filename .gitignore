@@ -1,4 +1,6 @@
 
+*.sublime-project
+
 *.m3u
 
 *.txt
