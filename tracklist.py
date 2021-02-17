@@ -45,12 +45,6 @@ txtname = re.sub('\.als$', ' tracklist.txt', tk.filename)
 if os.path.exists(txtname):
     os.remove(txtname)
 
-## create .m3u file in .als folder
-m3uname = re.sub('\.als$', ' playlist.m3u', tk.filename)
-if os.path.exists(m3uname):
-    os.remove(m3uname)
-print('#EXTM3U', file=open(m3uname, 'a'))
-
 ## find the clips 
 for clip in root.iter('AudioClip'):
 	## get time in beats (assuming 120 bpm!!) and convert to minutes
@@ -84,11 +78,7 @@ for track in tracklist:
 	name = track[1]
 	## print to tracklist.txt
 	print(timestamp, name, file=open(txtname, 'a'))
-	## print unedited name to playlist.m3u
-	name_unclean = track[2]
-	print('#EXTINF:0,'+name_unclean+'.mp3', file=open(m3uname, 'a'))
-	print(re.sub(' ', '%20', name_unclean)+'.mp3', file=open(m3uname, 'a'))
 
 
-print("Created tracklist txt and m3u playlist for "+re.search('[a-zA-Z0-9]+\.als$', tk.filename)[0])
+print("Created tracklist txt playlist for "+re.search('[a-zA-Z0-9]+\.als$', tk.filename)[0])
 
