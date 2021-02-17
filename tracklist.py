@@ -70,20 +70,23 @@ alsname = re.search('[^/]+\.als$', tk.filename)[0]
 n = len(tracklist)
 print("Found "+str(n)+" tracks in "+alsname+".")
 
-## create MM:SS timestamp, and print!
-for track in tracklist:
-	time = track[0]
-	mins = math.floor(time)
-	secs = round((time % 1) * 60)
-	## add a leading 0 if seconds is a single digit
-	secsstr = str(secs)
-	if len(secsstr) == 1: 
-		secsstr = '0'+secsstr
-	timestamp = str(mins)+':'+secsstr
-	name = track[1]
-	## print to tracklist.txt
-	print(timestamp, name, file=open(txtname, 'a'))
+## Check whether a tracklist can actually be made (>0 tracks)
+if n == 0:
+	## session is empty
+	print("No tracklist has been created.")
+else:
+	## create MM:SS timestamp, and print!
+	for track in tracklist:
+		time = track[0]
+		mins = math.floor(time)
+		secs = round((time % 1) * 60)
+		## add a leading 0 if seconds is a single digit
+		secsstr = str(secs)
+		if len(secsstr) == 1: 
+			secsstr = '0'+secsstr
+		timestamp = str(mins)+':'+secsstr
+		name = track[1]
+		## print to tracklist.txt
+		print(timestamp, name, file=open(txtname, 'a'))
 
-
-print("Created tracklist at "+txtname)
-
+	print("Created tracklist at "+txtname)
