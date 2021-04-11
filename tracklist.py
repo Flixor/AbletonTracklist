@@ -52,7 +52,7 @@ for sample in root.iter('Sample'):
 		time = float(clip.get('Time')) / 120.0
 		## get name
 		name = clip.find('Name').get('Value')
-		## remove album titles and such, anything thats not artist or title
+		## remove album titles if they are there
 		name = re.sub('\s[-_]\s.*\s[-_]\s', ' - ', name)	
 		tracklist.append([time, name])
 
@@ -87,6 +87,6 @@ else:
 		timestamp = str(mins)+':'+secsstr
 		name = track[1]
 		## print to tracklist.txt
-		print(name, timestamp, file=open(txtname, 'a'))
+		print(name, '-', timestamp, file=open(txtname, 'a'))
 
 	print("Created tracklist at "+txtname)
