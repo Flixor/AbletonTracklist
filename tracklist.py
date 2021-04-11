@@ -87,6 +87,6 @@ else:
 		timestamp = str(mins)+':'+secsstr
 		name = track[1]
 		## print to tracklist.txt
-		print(timestamp, name, file=open(txtname, 'a'))
+		print(name, timestamp, file=open(txtname, 'a'))
 
 	print("Created tracklist at "+txtname)
